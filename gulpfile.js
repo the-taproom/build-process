@@ -8,6 +8,7 @@ const postcss = require('gulp-postcss');
 const sass = require('gulp-sass');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
+const log = require('fancy-log');
 const sourcemaps = require('gulp-sourcemaps');
 let uglify = require('gulp-uglify');
 const rollup = require('gulp-rollup-lightweight');
@@ -51,46 +52,54 @@ const entryFiles = fs.readdirSync(scriptsDirectory).filter((file) => {
 
 
 const jsBuildTask = function (fileName) {
-	return (
-    rollup({
-      input: scriptsDirectory + fileName,
-      external: ["$", "jquery", "jQuery"],
-      output: {
-        globals: { jquery: "$", jQuery: "$", moment: "moment" },
-        format: "umd",
-        sourcemap: "inline"
-      },
-      plugins: [
-        babel(),
-        noderesolve({
-          mainFields: ["module", "main"]
-        }),
-        commonjs()
-      ],
-      onwarn: warning => {
-		//   This avoids a weird issue with some of the rollup plugins just spamming warnings
-        return true
-      }
-	})
-		.pipe(source(fileName.replace('.js', '') + ".min.js"))
-      .pipe(buffer())
-      .pipe(
-        uglify({ mangle: { reserved: ["jQuery", "$"], keep_fnames: true } })
-      )
-      .pipe(gulp.dest(themeDirectory + "assets/"))
-      .pipe(
-        t2.obj((chunk, enc, callback) => {
-          let date = new Date();
-          chunk.stat.atime = date;
-          chunk.stat.mtime = date;
-          callback(null, chunk);
-        })
-      )
-  );
+	log('~~~~~~~~~~~~~~~~');
+	log('JS Compiling...');
+	log('Compiling: ' + fileName);
+
+	return rollup({
+    input: scriptsDirectory + fileName,
+    external: ["$", "jquery", "jQuery"],
+    output: {
+      globals: { jquery: "$", jQuery: "$", moment: "moment" },
+      format: "umd",
+      sourcemap: "inline",
+    },
+    plugins: [
+      babel(),
+      noderesolve({
+        mainFields: ["module", "main"],
+      }),
+      commonjs(),
+    ],
+    onwarn: warning => {
+      //   This avoids a weird issue with some of the rollup plugins just spamming warnings
+      return true;
+    },
+  })
+    .pipe(source(fileName.replace(".js", "") + ".min.js"))
+    .pipe(buffer())
+    .pipe(uglify({ mangle: { reserved: ["jQuery", "$"], keep_fnames: true } }))
+    .pipe(gulp.dest(themeDirectory + "assets/"))
+    .on("end", () => {
+      log("~~~~~~~~~~~~~~~~");
+      log(fileName + " built!");
+    })
+    .pipe(
+      t2.obj((chunk, enc, callback) => {
+        let date = new Date();
+        chunk.stat.atime = date;
+        chunk.stat.mtime = date;
+        callback(null, chunk);
+      })
+    );
 };
 
 
 gulp.task("css", function() {
+	log("+++++++++++++++");
+	log("CSS Compiling...");
+	log("Compiling: main.scss");
+	
   return gulp
     .src(stylesDirectory + "main.scss")
     .pipe(sourcemaps.init())
@@ -103,6 +112,11 @@ gulp.task("css", function() {
     .pipe(sourcemaps.write())
     .pipe(postcss(plugins))
     .pipe(concat("main.min.css"))
+    .pipe(gulp.dest(themeDirectory + "assets/"))
+    .on("end", () => {
+      log("+++++++++++++++");
+      log("main.css built!");
+    })
     .pipe(
       t2.obj((chunk, enc, callback) => {
         let date = new Date();
@@ -110,14 +124,13 @@ gulp.task("css", function() {
         chunk.stat.mtime = date;
         callback(null, chunk);
       })
-    )
-    .pipe(gulp.dest(themeDirectory + "assets/"));
+    );
 });
 
 
 gulp.task('javascript', function() {
 	return entryFiles.forEach((entryFile) => jsBuildTask(entryFile));
-})
+});
 
 gulp.task('test', function(){
 	console.log('test test test');
