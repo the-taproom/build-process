@@ -125,4 +125,9 @@ gulp.task('test', function(){
 });
 
 
-gulp.task('default', gulp.parallel('css', 'javascript'));
+gulp.task("build", gulp.parallel("css", "javascript"));
+
+gulp.task("default", () => {
+	gulp.watch(scriptsDirectory + "**/*.js", gulp.parallel("javascript")),
+	gulp.watch(stylesDirectory + "**/*.*(s)css", gulp.parallel("css"));
+});
