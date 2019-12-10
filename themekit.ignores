@@ -1,0 +1,12 @@
+# These folders should always be ignored when uploading to shopify
+build/
+scripts/
+styles/
+node_modules/
+*.lock
+*.md
+*.yml
+*.sh
+*.log
+*.ignores
+.*
