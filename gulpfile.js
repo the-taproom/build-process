@@ -10,7 +10,7 @@ const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const log = require('fancy-log');
 const sourcemaps = require('gulp-sourcemaps');
-let uglify = require('gulp-uglify');
+const uglify = require('gulp-uglify');
 const rollup = require('gulp-rollup-lightweight');
 const babel = require('rollup-plugin-babel');
 const noderesolve = require('rollup-plugin-node-resolve');
@@ -18,7 +18,7 @@ const commonjs = require('rollup-plugin-commonjs');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 
-let plugins = [autoprefixer(), cssnano()];
+let cssPlugins = [autoprefixer(), cssnano()];
 
 const directories = ["src/", "theme/"];
 
@@ -110,7 +110,7 @@ gulp.task("css", function() {
     )
     .pipe(sass().on("error", sass.logError))
     .pipe(sourcemaps.write())
-    .pipe(postcss(plugins))
+    .pipe(postcss(cssPlugins))
     .pipe(concat("main.min.css"))
     .pipe(gulp.dest(themeDirectory + "assets/"))
     .on("end", () => {
