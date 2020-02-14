@@ -95,7 +95,7 @@ const jsBuildTask = function (fileName) {
 };
 
 
-gulp.task("css", function() {
+gulp.task("css", async function() {
 	log("+++++++++++++++");
 	log("CSS Compiling...");
 	log("Compiling: main.scss");
@@ -128,15 +128,18 @@ gulp.task("css", function() {
 });
 
 
-gulp.task('javascript', function() {
-	return entryFiles.forEach((entryFile) => jsBuildTask(entryFile));
+gulp.task('javascript', async function() {
+  return entryFiles.forEach((entryFile) => {
+    if (entryFile.includes('.js')) {
+      jsBuildTask(entryFile)
+    }
+  });
 });
 
 gulp.task('test', function(){
 	console.log('test test test');
 	return true;
 });
-
 
 gulp.task("build", gulp.parallel("css", "javascript"));
 
