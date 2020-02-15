@@ -44,11 +44,50 @@ const themeDirectory = repoDirectoryCheck();
 const scriptsDirectory = themeDirectory + "scripts/";
 const stylesDirectory = themeDirectory + "styles/";
 
-const entryFiles = fs.readdirSync(scriptsDirectory).filter((file) => {
+const scriptsEntryFiles = fs.readdirSync(scriptsDirectory).filter((file) => {
 	if (file.indexOf('.') > -1){
 		return true
 	}
 });
+
+
+const stylesEntryFiles = fs.readdirSync(stylesDirectory).filter((file) => {
+	if (file.indexOf('.') > -1){
+		return true
+	}
+});
+
+const stylesBuildTask = fileName => {
+	log('~~~~~~~~~~~~~~~~');
+	log('Styles Compiling...');
+	log('Compiling: ' + fileName);
+
+  return gulp
+    .src(stylesDirectory + fileName)
+    .pipe(sourcemaps.init())
+    .pipe(
+      aliases({
+        "@vendor": "./node_modules/",
+      })
+    )
+    .pipe(sass().on("error", sass.logError))
+    .pipe(sourcemaps.write())
+    .pipe(postcss(cssPlugins))
+    .pipe(concat(fileName.replace(".scss", "") + ".min.css"))
+    .pipe(gulp.dest(themeDirectory + "assets/"))
+    .on("end", () => {
+      log("+++++++++++++++");
+      log(fileName + " built!");
+    })
+    .pipe(
+      t2.obj((chunk, enc, callback) => {
+        let date = new Date();
+        chunk.stat.atime = date;
+        chunk.stat.mtime = date;
+        callback(null, chunk);
+      })
+    );
+}
 
 
 const jsBuildTask = function (fileName) {
@@ -128,8 +167,16 @@ gulp.task("css", async function() {
 });
 
 
+gulp.task('css-modules', async function() {
+  return stylesEntryFiles.forEach((entryFile) => {
+    if (entryFile.includes('.css') || entryFile.includes('.scss') && entryFile != "main.scss") {
+      stylesBuildTask(entryFile);
+    }
+  });
+});
+
 gulp.task('javascript', async function() {
-  return entryFiles.forEach((entryFile) => {
+  return scriptsEntryFiles.forEach((entryFile) => {
     if (entryFile.includes('.js')) {
       jsBuildTask(entryFile)
     }
@@ -141,9 +188,10 @@ gulp.task('test', function(){
 	return true;
 });
 
-gulp.task("build", gulp.parallel("css", "javascript"));
+gulp.task("build", gulp.parallel("css", "css-modules", "javascript"));
 
 gulp.task("default", () => {
 	gulp.watch(scriptsDirectory + "**/*.js", gulp.parallel("javascript")),
 	gulp.watch(stylesDirectory + "**/*.*(s)css", gulp.parallel("css"));
+	gulp.watch(stylesDirectory + "**/*.*(s)css", gulp.parallel("css-modules"));
 });
