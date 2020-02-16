@@ -1,0 +1,20 @@
+{
+	"parser": "babel-eslint",
+	"extends": ["eslint:recommended", "standard", "prettier"],
+	"env": {
+		"browser": true
+	},
+	"globals": {
+		"Shopify": "readonly",
+		"TAP": "writable",
+		"Taproom": "writable"
+	},
+	"rules": {
+		"space-before-function-paren": "off",
+		"semi": ["error", "always"],
+		"func-call-spacing": ["error", "never"],
+		"no-useless-escape": 0,
+		"standard/no-callback-literal": 0,
+		"no-console": 0
+	}
+}
