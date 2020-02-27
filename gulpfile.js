@@ -1,66 +1,64 @@
 // Gulp and Gulp Plugins
-const gulp = require('gulp');
-const fs = require('fs');
-const t2 = require('through2');
-const aliases = require('gulp-style-aliases');
-const concat = require('gulp-concat');
-const postcss = require('gulp-postcss');
-const sass = require('gulp-sass');
-const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
-const log = require('fancy-log');
-const sourcemaps = require('gulp-sourcemaps');
-const uglify = require('gulp-uglify');
-const rollup = require('gulp-rollup-lightweight');
-const babel = require('rollup-plugin-babel');
-const noderesolve = require('rollup-plugin-node-resolve');
-const commonjs = require('rollup-plugin-commonjs');
-const source = require('vinyl-source-stream');
-const buffer = require('vinyl-buffer');
+const gulp = require("gulp");
+const fs = require("fs");
+const t2 = require("through2");
+const aliases = require("gulp-style-aliases");
+const concat = require("gulp-concat");
+const postcss = require("gulp-postcss");
+const sass = require("gulp-sass");
+const autoprefixer = require("autoprefixer");
+const cssnano = require("cssnano");
+const log = require("fancy-log");
+const sourcemaps = require("gulp-sourcemaps");
+const uglify = require("gulp-uglify");
+const rollup = require("gulp-rollup-lightweight");
+const babel = require("rollup-plugin-babel");
+const noderesolve = require("rollup-plugin-node-resolve");
+const commonjs = require("rollup-plugin-commonjs");
+const source = require("vinyl-source-stream");
+const buffer = require("vinyl-buffer");
 
 let cssPlugins = [autoprefixer(), cssnano()];
 
 const directories = ["src/", "theme/"];
 
-
 /**
- * Checks repo for directory setup if it is Slate-based or 
+ * Checks repo for directory setup if it is Slate-based or
  * one of the two other common options
  */
 function repoDirectoryCheck() {
-	let repoDirectory = "./";
+  let repoDirectory = "./";
 
-	 directories.forEach(directory => {
-		try {
-			fs.accessSync(directory, fs.constants.F_OK);
-			repoDirectory = directory;
-		} catch(error){}
-	})
-	
-	return repoDirectory;
+  directories.forEach(directory => {
+    try {
+      fs.accessSync(directory, fs.constants.F_OK);
+      repoDirectory = directory;
+    } catch (error) {}
+  });
+
+  return repoDirectory;
 }
 
 const themeDirectory = repoDirectoryCheck();
 const scriptsDirectory = themeDirectory + "scripts/";
 const stylesDirectory = themeDirectory + "styles/";
 
-const scriptsEntryFiles = fs.readdirSync(scriptsDirectory).filter((file) => {
-	if (file.indexOf('.') > -1){
-		return true
-	}
+const scriptsEntryFiles = fs.readdirSync(scriptsDirectory).filter(file => {
+  if (file.indexOf(".") > -1) {
+    return true;
+  }
 });
 
-
-const stylesEntryFiles = fs.readdirSync(stylesDirectory).filter((file) => {
-	if (file.indexOf('.') > -1){
-		return true
-	}
+const stylesEntryFiles = fs.readdirSync(stylesDirectory).filter(file => {
+  if (file.indexOf(".") > -1) {
+    return true;
+  }
 });
 
 const stylesBuildTask = fileName => {
-	log('~~~~~~~~~~~~~~~~');
-	log('Styles Compiling...');
-	log('Compiling: ' + fileName);
+  log("~~~~~~~~~~~~~~~~");
+  log("Styles Compiling...");
+  log("Compiling: " + fileName);
 
   return gulp
     .src(stylesDirectory + fileName)
@@ -87,15 +85,14 @@ const stylesBuildTask = fileName => {
         callback(null, chunk);
       })
     );
-}
+};
 
+const jsBuildTask = function(fileName) {
+  log("~~~~~~~~~~~~~~~~");
+  log("JS Compiling...");
+  log("Compiling: " + fileName);
 
-const jsBuildTask = function (fileName) {
-	log('~~~~~~~~~~~~~~~~');
-	log('JS Compiling...');
-	log('Compiling: ' + fileName);
-
-	return rollup({
+  return rollup({
     input: scriptsDirectory + fileName,
     external: ["$", "jquery", "jQuery"],
     output: {
@@ -104,7 +101,7 @@ const jsBuildTask = function (fileName) {
       sourcemap: "inline",
     },
     plugins: [
-      babel(),
+      babel({ runtimeHelpers: true }),
       noderesolve({
         mainFields: ["module", "main"],
       }),
@@ -133,12 +130,11 @@ const jsBuildTask = function (fileName) {
     );
 };
 
-
 gulp.task("css", async function() {
-	log("+++++++++++++++");
-	log("CSS Compiling...");
-	log("Compiling: main.scss");
-	
+  log("+++++++++++++++");
+  log("CSS Compiling...");
+  log("Compiling: main.scss");
+
   return gulp
     .src(stylesDirectory + "main.scss")
     .pipe(sourcemaps.init())
@@ -166,32 +162,34 @@ gulp.task("css", async function() {
     );
 });
 
-
-gulp.task('css-modules', async function() {
-  return stylesEntryFiles.forEach((entryFile) => {
-    if (entryFile.includes('.css') || entryFile.includes('.scss') && entryFile != "main.scss") {
+gulp.task("css-modules", async function() {
+  return stylesEntryFiles.forEach(entryFile => {
+    if (
+      entryFile.includes(".css") ||
+      (entryFile.includes(".scss") && entryFile != "main.scss")
+    ) {
       stylesBuildTask(entryFile);
     }
   });
 });
 
-gulp.task('javascript', async function() {
-  return scriptsEntryFiles.forEach((entryFile) => {
-    if (entryFile.includes('.js')) {
-      jsBuildTask(entryFile)
+gulp.task("javascript", async function() {
+  return scriptsEntryFiles.forEach(entryFile => {
+    if (entryFile.includes(".js")) {
+      jsBuildTask(entryFile);
     }
   });
 });
 
-gulp.task('test', function(){
-	console.log('test test test');
-	return true;
+gulp.task("test", function() {
+  console.log("test test test");
+  return true;
 });
 
 gulp.task("build", gulp.parallel("css", "css-modules", "javascript"));
 
 gulp.task("default", () => {
-	gulp.watch(scriptsDirectory + "**/*.js", gulp.parallel("javascript")),
-	gulp.watch(stylesDirectory + "**/*.*(s)css", gulp.parallel("css"));
-	gulp.watch(stylesDirectory + "**/*.*(s)css", gulp.parallel("css-modules"));
+  gulp.watch(scriptsDirectory + "**/*.js", gulp.parallel("javascript")),
+    gulp.watch(stylesDirectory + "**/*.*(s)css", gulp.parallel("css"));
+  gulp.watch(stylesDirectory + "**/*.*(s)css", gulp.parallel("css-modules"));
 });

@@ -1,12 +1,16 @@
 {
-	"presets": [
-		[
-			"@babel/preset-env",
-			{
-				"targets": {
-					"browsers": ["last 2 versions", "ie >=11"]
-				}
-			}
-		]
-	]
+  "plugins": [
+    "@babel/plugin-transform-runtime"
+  ],
+  presets: [
+    [
+    "@babel/preset-env", {
+        useBuiltIns: "entry",
+        corejs: 3,
+        targets: {
+          "browsers": ["last 2 versions", "ie >=11"] 
+        },
+      }
+    ]
+  ]
 }
