@@ -14,18 +14,17 @@
 
 1. Run npm install
 2. Make sure Shopify tooling is installed
-
-- `brew tap shopify/shopify`
-- `brew install themekit`
-
-3. Setup `config.yml` ((Snippet on Cacher)
-4. Get password from private app
-
+  - `brew tap shopify/shopify`
+  - `brew install themekit`
+3. Install Gulp CLI
+  - `npm install gulp-cli -g`
+4. Setup `config.yml` ((Snippet on Cacher)
+5. Get password from private app
 - New Client
   - Create a new Private app
 - Previous Client
   - Shopify admin => Apps => Private Apps => Manage Private Apps => Taproom App
-    => Password ((Themekit Walkthrough)[])
+    => Password ((Themekit Walkthrough)[https://shopify.github.io/themekit/#get-api-access])
 
-5. Run `theme deploy`
+6. Run `theme deploy`
 
