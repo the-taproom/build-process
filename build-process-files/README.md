@@ -27,6 +27,6 @@ To build this project:
 
 - **Previous Client**
   - Shopify admin => Apps => Private Apps => Manage Private Apps => Taproom App 
-    => Password [Themekit Walkthrough](https://shopify.github.io/themekit/#get-api-access)
+    => Password ([Themekit Walkthrough](https://shopify.github.io/themekit/#get-api-access))
 
 5. Run `theme deploy`
