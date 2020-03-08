@@ -1,31 +1,32 @@
-# Build Process
+# {ProjectName}
 
-## Setup in New Project
+[Project Name](link to project Basecamp)
 
+Master branch = `master`
 
-## Setup in Existing Project
+To build this project:
 
-1. Clone this repo
-2. Copy files in root (not including README) to the directory of your project
-- `rsync -aP [PATH_TO_BUILD_PROCESS_DIR]/{.,}* [PATH_TO_PROJECT_DIR]`
-3. Add `styles` folder
-4. Add `scripts` folder
+1. Clone repo locally
 
-## Next Steps
+2. Install Shopify tooling:
+   **Using Homebrew**
 
-1. Run npm install
-2. Make sure Shopify tooling is installed
-- `brew tap shopify/shopify`
-- `brew install themekit`
-3. Install Gulp CLI
-- `npm install gulp-cli -g`
-4. Setup `config.yml` (Snippet on Cacher)
-5. Get password from private app
-- New Client
+   - `brew tap shopify/shopify`
+   - `brew install themekit`
+
+3. Install [Themekit](https://shopify.github.io/themekit/)
+
+4. Run `npm install`
+
+5. Set up config.yml (Snippet on Cacher)
+
+6. Get password from private app
+
+- **New Client**
   - Create a new Private app
-- Previous Client
-  - Shopify admin => Apps => Private Apps => Manage Private Apps => Taproom App
-    => Password ([Themekit Walkthrough](https://shopify.github.io/themekit/#get-api-access))
 
-6. Run `theme deploy`
+- **Previous Client**
+  - Shopify admin => Apps => Private Apps => Manage Private Apps => Taproom App 
+    => Password [Themekit Walkthrough](https://shopify.github.io/themekit/#get-api-access)
 
+5. Run `theme deploy`
