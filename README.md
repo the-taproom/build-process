@@ -2,12 +2,18 @@
 
 ## Setup in New Project
 
+1. Setup project (recommend (Skeleton Theme)[https://github.com/Shopify/skeleton-theme/tree/master/src/styles])
+2. Copy files from `build-process-files` (script below) to the directory of your project
+- `rsync -aP [PATH_TO_BUILD_PROCESS_DIR]/build-process-files/{.,}* [PATH_TO_PROJECT_DIR]`
+3. Add `styles` folder (if needed)
+4. Add `scripts` folder (if needed)
+
 
 ## Setup in Existing Project
 
 1. Clone this repo
-2. Copy files in root (not including README) to the directory of your project
-- `rsync -aP [PATH_TO_BUILD_PROCESS_DIR]/{.,}* [PATH_TO_PROJECT_DIR]`
+2. Copy files from `build-process-files` (script below) to the directory of your project
+- `rsync -aP [PATH_TO_BUILD_PROCESS_DIR]/build-process-files/{.,}* [PATH_TO_PROJECT_DIR]`
 3. Add `styles` folder
 4. Add `scripts` folder
 
