@@ -14,6 +14,8 @@ the javascript and scss/css ecosystems, keeping liquid out of non-liquid files
 allows us to actually use tooling to help our development process instead of
 failing because of liquid tags.
 
+## Examples:
+
 See these snippets on Cacher for exact implementations:
 
 Javascript - [https://snippets.cacher.io/snippet/26e943d324dec1b70d1bA](https://snippets.cacher.io/snippet/26e943d324dec1b70d1b)
