@@ -24,7 +24,7 @@ directory (see Note).
 The build process is possible because these are javascript, css, or scss files, 
 not `.liquid` files. Liquid in the build process files will keep it from
 working. If `.js.liquid`, `.css.liquid` or `.scss.liquid` files need to be moved
-over, please follow [this process]() for sanitizing the files of liquid and
+over, please follow [this process](./setup-docs/liquid-settings-for-js-css.md) for sanitizing the files of liquid and
 referencing them in a way the build process can handle.
 
 _Note: There is an issue currently where changes to files in subdirectories will

@@ -1,3 +1,5 @@
+# Handling Theme Settings in Javascript and CSS Files
+
 Shopify projects rely on settings which are often referenced by javascript or css
 for different functionality. To use processors like Babel on a project, we can't
 have liquid tags on the file, but we don't want to lose the flexibility to
