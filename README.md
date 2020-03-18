@@ -95,7 +95,41 @@ Potential file structure for a project:
 - `brew install themekit`
 3. Install Gulp CLI
 - `npm install gulp-cli -g`
-4. Setup `config.yml` (Snippet on Cacher)
+4. Setup `config.yml`
+``` yaml
+# password, theme_id, and store variables are required.
+#
+# For more information on this config file:
+# https://shopify.github.io/themekit/commands/#configure
+
+development:
+  password: [your-api-password]
+  theme_id: "[your-theme-id]"
+  store: [your-store].myshopify.com
+  ignores:
+    -themekit.ignores
+  ignore_files:
+      - config/settings_data.json
+      - config/settings_schema.json  
+  
+staging: 
+  password: [your-api-password]
+  theme_id: "[your-theme-id]"
+  store: [your-store].myshopify.com
+  ignores:
+    -themekit.ignores
+  ignore_files:
+      - config/settings_data.json
+      - config/settings_schema.json  
+  
+production: 
+  password: [your-api-password]
+  theme_id: "[your-theme-id]"
+  store: [your-store].myshopify.com
+  timeout: 100s
+  readonly: true
+  
+```
 5. Get password from private app
 - New Client
   - Create a new Private app
