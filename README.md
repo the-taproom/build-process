@@ -78,7 +78,6 @@ Potential file structure for a project:
 3. Add `styles` folder (if needed)
 4. Add `scripts` folder (if needed)
 
-
 ### Setup in Existing Project
 
 1. Clone this repo
