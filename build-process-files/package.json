@@ -41,15 +41,16 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "scripts": {
-    "start": "\"gulp\"",
-    "build": "\"gulp build\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp",
+    "build": "gulp build",
     "watch": "theme deploy --env=development && theme watch --env=development",
+    "cypress-open": "cypress open",
     "deploy-dev": "theme deploy --env=development",
     "deploy-stage": "theme deploy --env=staging "
   },
   "dependencies": {
     "@babel/runtime": "^7.8.4",
-    "babel-eslint": "^10.1.0"
+    "babel-eslint": "^10.1.0",
+    "cypress": "^4.2.0"
   }
 }
