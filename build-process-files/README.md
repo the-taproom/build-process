@@ -18,7 +18,9 @@ To build this project:
 
 4. Run `npm install`
 
-5. Set up config.yml
+5. Add Store url to `cypress.json`
+
+6. Set up config.yml
 
 ``` yaml
 # password, theme_id, and store variables are required.
@@ -55,7 +57,7 @@ production:
 
 ```
 
-6. Get password from private app
+7. Get password from private app
 
 - **New Client**
   - Create a new Private app ([Themekit Walkthrough](https://shopify.github.io/themekit/#get-api-access))
@@ -64,7 +66,7 @@ production:
   - Shopify admin => Apps => Private Apps => Manage Private Apps => Taproom App 
     => Password ([Themekit Walkthrough](https://shopify.github.io/themekit/#get-api-access))
 
-5. Run `theme deploy`
+8. Run `theme deploy`
 
 ## Cypress
 
@@ -75,6 +77,7 @@ the live url and with preview links added
 To get started with Cypress, check out [their get started guide.](https://docs.cypress.io/guides/getting-started/writing-your-first-test.html#Step-2-Query-for-an-element)
 
 It is also recommended to checkout Cypress' [Best Practices guide](https://docs.cypress.io/guides/references/best-practices.html).
+
 Live url for project is set up as an environment variable in the `cypress.json`
 file already. This will be the default url that is loaded.
 
