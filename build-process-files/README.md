@@ -39,6 +39,7 @@ the live url and with preview links added
 
 To get started with cypress, check out [their get started guide.](https://docs.cypress.io/guides/getting-started/writing-your-first-test.html#Step-2-Query-for-an-element)
 
+It is also recommended to checkout Cypress' [Best Practices guide](https://docs.cypress.io/guides/references/best-practices.html).
 Live url for project is set up as an environment variable in the `cypress.json`
 file already. This will be the default url that is loaded.
 
