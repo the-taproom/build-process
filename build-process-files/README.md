@@ -111,6 +111,4 @@ if(Cypress.env("is-dev") == false) {
 cy.visit(`${url}${devQuery}`);
 ```
 
-(See `cypress/integration/home-page.spec.js` for an example of use case)
-
 5. To remove the preview query param from being appended to the url, change `is-dev` to `false` in `cypress.env.json`.
