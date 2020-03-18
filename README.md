@@ -73,10 +73,11 @@ Potential file structure for a project:
 ### Setup in New Project
 
 1. Setup project (recommend [Skeleton Theme](https://github.com/Shopify/skeleton-theme/tree/master/src/styles))
-2. Copy files from `build-process-files` (script below) to the directory of your project
+2. Clone this repo
+3. Copy files from `build-process-files` (script below) to the directory of your project
 - `rsync -aP [PATH_TO_BUILD_PROCESS_DIR]/build-process-files/{.,}* [PATH_TO_PROJECT_DIR]`
-3. Add `styles` folder (if needed)
-4. Add `scripts` folder (if needed)
+4. Add `styles` folder (if needed)
+5. Add `scripts` folder (if needed)
 
 ### Setup in Existing Project
 
@@ -88,7 +89,7 @@ Potential file structure for a project:
 
 ### Next Steps
 
-1. Run npm install
+1. Run npm install (or yarn install)
 2. Make sure Shopify tooling is installed
 - `brew tap shopify/shopify`
 - `brew install themekit`
