@@ -95,5 +95,6 @@ Potential file structure for a project:
 - `brew install themekit`
 3. Install Gulp CLI
 - `npm install gulp-cli -g`
-4. See Project's `README.md` for next steps in setting up the project
+4. Add Store url to `cypress.json`
+5. See Project's `README.md` for next steps in setting up the project
 

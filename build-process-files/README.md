@@ -18,9 +18,7 @@ To build this project:
 
 4. Run `npm install`
 
-5. Add Store url to `cypress.json`
-
-6. Set up config.yml
+5. Set up config.yml
 
 ``` yaml
 # password, theme_id, and store variables are required.
@@ -57,7 +55,7 @@ production:
 
 ```
 
-7. Get password from private app
+6. Get password from private app
 
 - **New Client**
   - Create a new Private app ([Themekit Walkthrough](https://shopify.github.io/themekit/#get-api-access))
@@ -66,7 +64,7 @@ production:
   - Shopify admin => Apps => Private Apps => Manage Private Apps => Taproom App 
     => Password ([Themekit Walkthrough](https://shopify.github.io/themekit/#get-api-access))
 
-8. Run `theme deploy`
+7. Run `theme deploy`
 
 ## Cypress
 
