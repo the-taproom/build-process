@@ -18,12 +18,47 @@ To build this project:
 
 4. Run `npm install`
 
-5. Set up config.yml (Snippet on Cacher)
+5. Set up config.yml
+
+``` yaml
+# password, theme_id, and store variables are required.
+#
+# For more information on this config file:
+# https://shopify.github.io/themekit/commands/#configure
+
+development:
+  password: [your-api-password]
+  theme_id: "[your-theme-id]"
+  store: [your-store].myshopify.com
+  ignores:
+    -themekit.ignores
+  ignore_files:
+      - config/settings_data.json
+      - config/settings_schema.json  
+  
+staging: 
+  password: [your-api-password]
+  theme_id: "[your-theme-id]"
+  store: [your-store].myshopify.com
+  ignores:
+    -themekit.ignores
+  ignore_files:
+      - config/settings_data.json
+      - config/settings_schema.json  
+  
+production: 
+  password: [your-api-password]
+  theme_id: "[your-theme-id]"
+  store: [your-store].myshopify.com
+  timeout: 100s
+  readonly: true
+
+```
 
 6. Get password from private app
 
 - **New Client**
-  - Create a new Private app ([Themekit Walkthrough](https://shopify.github.io/themekit/#get-api-access)
+  - Create a new Private app ([Themekit Walkthrough](https://shopify.github.io/themekit/#get-api-access))
 
 - **Previous Client**
   - Shopify admin => Apps => Private Apps => Manage Private Apps => Taproom App 
