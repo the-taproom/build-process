@@ -1,5 +1,5 @@
-require 'rubygems'
-require 'bundler/setup'
+require "rubygems"
+require "bundler/setup"
 
 Bundler.require(:default)
 
@@ -14,13 +14,28 @@ class CliApp < Thor
   desc "migrate DIRECTORY", "Migrate a project to Build Process"
 
   def migrate(dirOfProject)
-    puts "#{dirOfProject}"
-
     destination = dirOfProject
-    source = './build-process-files/.'
-    puts source
+    source = "./build-process-files/."
+    scripts = "/scripts"    
+    styles = "/styles"    
 
-    FileUtils.cp_r source, destination
+    # FileUtils.cp_r source, destination
+
+    puts "Files copied from #{source} to #{destination}"
+
+    if Dir.exist? "#{destination}#{styles}"
+      puts "Styles folder already exists"
+    else
+      FileUtils.mkdir_p "#{destination}#{styles}"
+      puts "Styles folder created"
+    end
+
+    if Dir.exist? "#{destination}#{scripts}"
+      puts "Scripts folder already exists"
+    else
+      FileUtils.mkdir_p "#{destination}#{scripts}"
+      puts "Scripts folder created"
+    end
   end
 
   desc "update DIRECTORY", "Update Build Process in a project already using it"
