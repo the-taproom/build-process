@@ -15,6 +15,12 @@ class CliApp < Thor
 
   def migrate(dirOfProject)
     puts "#{dirOfProject}"
+
+    destination = dirOfProject
+    source = './build-process-files/.'
+    puts source
+
+    FileUtils.cp_r source, destination
   end
 
   desc "update DIRECTORY", "Update Build Process in a project already using it"
