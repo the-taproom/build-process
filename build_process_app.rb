@@ -1,9 +1,11 @@
+#!/usr/bin/env ruby
+
 require "rubygems"
 require "bundler/setup"
 
 Bundler.require(:default)
 
-class CliApp < Thor 
+class Build_Process_App < Thor 
 
   desc "new DIRECTORY", "Create a new project with Build Process"
 
@@ -45,4 +47,4 @@ class CliApp < Thor
   end
 end
 
-CliApp.start(ARGV)
+Build_Process_App.start(ARGV)
