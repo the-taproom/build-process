@@ -100,7 +100,7 @@ If you would like to test themes that aren't live, follow these steps.
 let url = Cypress.env("url");
 let devQuery = "";
 
-if(Cypress.env("is-dev") == false) {
+if(Cypress.env("is-dev") == "true") {
   devQuery = Cypress.env("dev-query");
 }
 ```

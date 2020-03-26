@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require "rubygems"
+require "bundler/setup"
+require "./app/build_process_app.rb"
+
+Bundler.require(:default)
+
+
+Build_Process_App.start(ARGV)
+
