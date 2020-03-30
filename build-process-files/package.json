@@ -44,7 +44,7 @@
     "start": "gulp",
     "build": "gulp build",
     "watch": "theme deploy --env=development && theme watch --env=development",
-    "cypress-open": "cypress open",
+    "test": "cypress open",
     "deploy-dev": "theme deploy --env=development",
     "deploy-stage": "theme deploy --env=staging "
   },
