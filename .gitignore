@@ -14,7 +14,6 @@ config/shopify.yml
 npm-debug.log
 .env
 .env.*
-config.yml
  
 # Compiled source #
 ###################
