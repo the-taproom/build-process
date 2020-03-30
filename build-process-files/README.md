@@ -66,14 +66,24 @@ production:
 
 ```
 
-6. Get password from private app
+6. Get password from private app (All developers at The Taproom use the same app for each client)
 
 - **New Client**
-  - Create a new Private app ([Themekit Walkthrough](https://shopify.github.io/themekit/#get-api-access))
+  - Shopify admin => Apps => Private Apps => Manage Private Apps => Create New
+    Private App
+    - Enter App Name (Taproom Development) & Contact Email (kelly@thetaproom.com)
+    - _Theme templates and theme assets_ set to **Read Write** access.
+    - Save
+    - Copy **Password**
+
+    See gif below for walkthrough
 
 - **Previous Client**
-  - Shopify admin => Apps => Private Apps => Manage Private Apps => Taproom App 
-    => Password ([Themekit Walkthrough](https://shopify.github.io/themekit/#get-api-access))
+  - Shopify admin => Apps => Private Apps => Manage Private Apps => Taproom App
+    => Password
+
+    Gif for walkthrough:
+    ![Custom App Walkthrough](../setup-docs/shopify-local-theme-development-generate-api.gif)
 
 7. Run `theme deploy`
 
