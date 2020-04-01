@@ -21,7 +21,7 @@ class Build_Process_App < Thor
     scripts = "/scripts"    
     styles = "/styles"    
 
-    # FileUtils.cp_r source, destination
+    FileUtils.cp_r source, destination
 
     puts "Files copied from #{source} to #{destination}"
 
