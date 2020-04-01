@@ -83,7 +83,7 @@ Potential file structure for a project:
 
 1. Clone this repo
 2. Run `ruby build_proccess_app.rb migrate [PATH_TO_PROJECT_DIR]` to copy files
-from `build-process-files` (script below) to the directory of your project
+from `build-process-files` to the directory of your project
 3. Add `main.scss` to `styles` folder
 
 (Optional)
