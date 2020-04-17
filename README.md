@@ -82,10 +82,12 @@ Potential file structure for a project:
 ### Setup in Existing Project
 
 1. Clone this repo
-2. Copy files from `build-process-files` (script below) to the directory of your project
-- `rsync -aP [PATH_TO_BUILD_PROCESS_DIR]/build-process-files/{.,}* [PATH_TO_PROJECT_DIR]`
-3. Add `styles` folder
-4. Add `scripts` folder
+2. Run `ruby build_proccess_app.rb migrate [PATH_TO_PROJECT_DIR]` to copy files
+from `build-process-files` to the directory of your project
+3. Add `main.scss` to `styles` folder
+
+(Optional)
+4. Add `index.js` to `scripts` folder
 
 ### Next Steps
 
