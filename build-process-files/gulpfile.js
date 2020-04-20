@@ -17,6 +17,7 @@ const noderesolve = require("rollup-plugin-node-resolve");
 const commonjs = require("rollup-plugin-commonjs");
 const source = require("vinyl-source-stream");
 const buffer = require("vinyl-buffer");
+const touch = require("gulp-touch-fd");
 
 let cssPlugins = [autoprefixer(), cssnano()];
 
@@ -73,10 +74,6 @@ const stylesBuildTask = fileName => {
     .pipe(postcss(cssPlugins))
     .pipe(concat(fileName.replace(".scss", "") + ".min.css"))
     .pipe(gulp.dest(themeDirectory + "assets/"))
-    .on("end", () => {
-      log("+++++++++++++++");
-      log(fileName + " built!");
-    })
     .pipe(
       t2.obj((chunk, enc, callback) => {
         let date = new Date();
@@ -84,10 +81,14 @@ const stylesBuildTask = fileName => {
         chunk.stat.mtime = date;
         callback(null, chunk);
       })
-    );
+    )
+    .on("end", () => {
+      log("+++++++++++++++");
+      log(fileName + " built!");
+    });
 };
 
-const jsBuildTask = function(fileName) {
+const jsBuildTask = function (fileName) {
   log("~~~~~~~~~~~~~~~~");
   log("JS Compiling...");
   log("Compiling: " + fileName);
@@ -116,10 +117,6 @@ const jsBuildTask = function(fileName) {
     .pipe(buffer())
     .pipe(uglify({ mangle: { reserved: ["jQuery", "$"], keep_fnames: true } }))
     .pipe(gulp.dest(themeDirectory + "assets/"))
-    .on("end", () => {
-      log("~~~~~~~~~~~~~~~~");
-      log(fileName + " built!");
-    })
     .pipe(
       t2.obj((chunk, enc, callback) => {
         let date = new Date();
@@ -127,10 +124,14 @@ const jsBuildTask = function(fileName) {
         chunk.stat.mtime = date;
         callback(null, chunk);
       })
-    );
+    )
+    .on("end", () => {
+      log("~~~~~~~~~~~~~~~~");
+      log(fileName + " built!");
+    });
 };
 
-gulp.task("css", async function() {
+gulp.task("css", async function () {
   log("+++++++++++++++");
   log("CSS Compiling...");
   log("Compiling: main.scss");
@@ -147,33 +148,34 @@ gulp.task("css", async function() {
     .pipe(sourcemaps.write())
     .pipe(postcss(cssPlugins))
     .pipe(concat("main.min.css"))
-    .pipe(gulp.dest(themeDirectory + "assets/"))
-    .on("end", () => {
-      log("+++++++++++++++");
-      log("main.css built!");
-    })
     .pipe(
       t2.obj((chunk, enc, callback) => {
         let date = new Date();
         chunk.stat.atime = date;
         chunk.stat.mtime = date;
         callback(null, chunk);
+        log(chunk.stat.mtime);
       })
-    );
+    )
+    .pipe(gulp.dest(themeDirectory + "assets/"))
+    .on("end", () => {
+      log("+++++++++++++++");
+      log("main.css built!");
+    });
 });
 
-gulp.task("css-modules", async function() {
+gulp.task("css-modules", async function () {
   return stylesEntryFiles.forEach(entryFile => {
     if (
       entryFile.includes(".css") ||
-      (entryFile.includes(".scss") && entryFile != "main.scss")
+      (entryFile.includes(".scss") && entryFile !== "main.scss")
     ) {
       stylesBuildTask(entryFile);
     }
   });
 });
 
-gulp.task("javascript", async function() {
+gulp.task("javascript", async function () {
   return scriptsEntryFiles.forEach(entryFile => {
     if (entryFile.includes(".js")) {
       jsBuildTask(entryFile);
@@ -181,7 +183,7 @@ gulp.task("javascript", async function() {
   });
 });
 
-gulp.task("test", function() {
+gulp.task("test", function () {
   console.log("test test test");
   return true;
 });
@@ -189,7 +191,7 @@ gulp.task("test", function() {
 gulp.task("build", gulp.parallel("css", "css-modules", "javascript"));
 
 gulp.task("default", () => {
-  gulp.watch(scriptsDirectory + "**/*.js", gulp.parallel("javascript")),
-    gulp.watch(stylesDirectory + "**/*.*(s)css", gulp.parallel("css"));
-  gulp.watch(stylesDirectory + "**/*.*(s)css", gulp.parallel("css-modules"));
+  gulp.watch(scriptsDirectory + "**/*.js", gulp.parallel("javascript"));
+  gulp.watch("./styles/**/*.scss", gulp.parallel("css"));
+  gulp.watch("./styles/**/*.scss", gulp.parallel("css-modules"));
 });
