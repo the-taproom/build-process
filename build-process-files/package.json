@@ -10,6 +10,8 @@
     "@babel/core": "^7.7.5",
     "@babel/plugin-transform-runtime": "^7.8.3",
     "@babel/preset-env": "^7.7.5",
+    "@babel/runtime": "^7.8.4",
+    "babel-eslint": "^10.1.0",
     "autoprefixer": "^9.7.3",
     "cssnano": "^4.1.10",
     "eslint": "^5.7.0",
@@ -38,7 +40,8 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0"
+    "vinyl-source-stream": "^2.0.0",
+    "cypress": "^4.4.0"
   },
   "scripts": {
     "start": "gulp",
@@ -48,9 +51,5 @@
     "deploy-dev": "theme deploy --env=development",
     "deploy-stage": "theme deploy --env=staging "
   },
-  "dependencies": {
-    "@babel/runtime": "^7.8.4",
-    "babel-eslint": "^10.1.0",
-    "cypress": "^4.2.0"
-  }
+  "dependencies": {}
 }
