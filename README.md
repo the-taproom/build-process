@@ -99,6 +99,7 @@ from `build-process-files` to the directory of your project
 
 1. Add snippet `css-variables.liquid`
     - This file allow us to sanitize our css and javascript files from any liquid 
+
 Code for file: 
 ```
 {% comment %}
@@ -117,6 +118,7 @@ Code for file:
 ```
 
 2. Add snippet `js-variables.liquid`
+
 Code for file: 
 ```
 {% capture js_variables %}
