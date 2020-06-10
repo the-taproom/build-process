@@ -75,7 +75,7 @@ Potential file structure for a project:
 1. Setup project (recommend [Skeleton Theme](https://github.com/Shopify/skeleton-theme/tree/master/src/styles))
 2. Clone this repo
 3. (If needed) Install bundler 2 - `gem install bundler` 
-4 Install gems - `bundle install`
+4. Install gems - `bundle install`
 5. Run `ruby build_process_app.rb migrate [PATH_TO_PROJECT_DIR]` to copy files
 from `build-process-files` to the directory of your project
 6. Add `main.scss` to `styles` folder
