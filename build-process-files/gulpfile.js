@@ -17,7 +17,6 @@ const noderesolve = require("rollup-plugin-node-resolve");
 const commonjs = require("rollup-plugin-commonjs");
 const source = require("vinyl-source-stream");
 const buffer = require("vinyl-buffer");
-const touch = require("gulp-touch-fd");
 
 let cssPlugins = [autoprefixer(), cssnano()];
 
