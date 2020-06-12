@@ -15,7 +15,8 @@ npm-debug.log
 .env
 .env.*
 config.yml
- 
+*.min.*
+
 # Compiled source #
 ###################
 *.com
