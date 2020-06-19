@@ -6,6 +6,9 @@
   "author": "The Taproom",
   "license": "PRIVATE",
   "private": true,
+  "engines": {
+    "node": "12.x"
+  },
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/plugin-transform-runtime": "^7.10.1",
