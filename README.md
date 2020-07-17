@@ -163,6 +163,10 @@ Shopify.theme_settings.cart_action = {{ settings.cart_action | json }};
 - `brew install themekit`
 5. Install Gulp CLI
 - `npm install gulp-cli -g`
-6. Add Store url to `cypress.json`
-7. See Project's `README.md` for next steps in setting up the project
+6. Build minified files
+- `npm run build`
+7. Include minified files in `theme.liquid`
+- `main.min.css` and `index.min.js`
+8. Add Store url to `cypress.json`
+9. See Project's `README.md` for next steps in setting up the project
 
