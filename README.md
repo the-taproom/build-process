@@ -158,7 +158,6 @@ Shopify.theme_settings.cart_action = {{ settings.cart_action | json }};
 ```
 
 3. Run npm install (or yarn install)
-- Note: If initial `npm install` fails it may be due to invalid JSON. Delete `package-lock.json` and try again.
 4. Make sure Shopify tooling is installed
 - `brew tap shopify/shopify`
 - `brew install themekit`
