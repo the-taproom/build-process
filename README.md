@@ -86,18 +86,19 @@ from `build-process-files` to the directory of your project
 ### Setup in Existing Project
 
 1. Clone this repo
-2. (If needed) Install bundler 2 - `gem install bundler` 
-3 Install gems - `bundle install`
+2. (If needed) Install bundler 2 - `gem install bundler`  
+3. Install gems - `bundle install`
 4. Run `ruby build_process_app.rb migrate [PATH_TO_PROJECT_DIR]` to copy files
 from `build-process-files` to the directory of your project
-5. Add `main.scss` to `styles` folder
+5. Move to the folder of the theme you downloaded
+6. Add `main.scss` to `styles` folder
 
 (Optional)
-6. Add `index.js` to `scripts` folder
+7. Add `index.js` to `scripts` folder
 
 ### Next Steps
 
-1. Add snippet `css-variables.liquid`
+1. Add snippet `css-variables.liquid` to snippets folder
     - This file allow us to sanitize our css and javascript files from any liquid 
 
 Code for file: 
@@ -117,7 +118,7 @@ Code for file:
 </style>
 ```
 
-2. Add snippet `js-variables.liquid`
+2. Add snippet `js-variables.liquid` to snippets folder
 
 Code for file: 
 ```
@@ -148,7 +149,7 @@ Shopify.theme_settings.cart_action = {{ settings.cart_action | json }};
 {%- endfor -%}
 ```
 
-2. Add code for css and js variables to `theme.liquid`
+2. Add code for css and js variables to `theme.liquid` in the `head`.
 ```
  {% include 'css-variables' %}
 ```
@@ -166,7 +167,8 @@ Shopify.theme_settings.cart_action = {{ settings.cart_action | json }};
 6. Build minified files
 - `npm run build`
 7. Include minified files in `theme.liquid`
-- `main.min.css` and `index.min.js`
+- `{{ 'main.min.css' | asset_url | stylesheet_tag }}`
+- `{{ 'index.min.js' | asset_url | script_tag }}`
 8. Add Store url to `cypress.json`
 9. See Project's `README.md` for next steps in setting up the project
 
