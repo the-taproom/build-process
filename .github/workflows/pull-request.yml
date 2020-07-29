@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Slack Notification
-      uses: kv109/action-ready-for-review@0.1
+      uses: kv109/action-ready-for-review@0.2
       env:
         IGNORE_DRAFTS: false # Ignore draft pull requests. Default: true.
         PR_APPROVED_FORMAT: | # Format is fully customizable.
@@ -26,3 +26,4 @@ jobs:
           *{ pull_request.title }* was rejected by { review.user.login } :cry:
         SLACK_CHANNEL: pull-requests
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        USERNAME: PR Notifier
