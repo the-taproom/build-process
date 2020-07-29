@@ -149,10 +149,6 @@ Shopify.theme_settings.cart_action = {{ settings.cart_action | json }};
 {%- endfor -%}
 ```
 
-2. Add code for css and js variables to `theme.liquid` in the `head`.
-```
- {% include 'css-variables' %}
-```
 
 ```
  {% include 'js-variables' %}
