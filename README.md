@@ -7,21 +7,7 @@ Any old assets wouldn't be converted to build process unless explicitly done so.
 This also allows one to 'opt-out' of the process during development if needed.
 so at any point, a file can be moved back to `assets`, `theme.liquid` file
 reference updated, and theme deployed to circumvent the build process.
-
-## Overview
-
-### Scripts and Styles folders
-
-The root directory for these folders will be iterated through on build. Each file
-located in root will have an equitable `.min` file created for it in the assets
-folder. This provides the opportunity to only load the scripts and styles
-needed for a specific page instead of loading everything for the entire site at
-one time. For the components that need to be on every page, you can do this by
-creating a subdirectory in the `scripts` or `styles` folder and importing it to
-a `main.scss`/`theme.scss`/`index.js`/`theme.js` file in the root of the parent
-directory (see Note).
-
-The build process is possible because these are javascript, css, or scss files, 
+e are javascript, css, or scss files, 
 not `.liquid` files. Liquid in the build process files will keep it from
 working. If `.js.liquid`, `.css.liquid` or `.scss.liquid` files need to be moved
 over, please follow [this process](./setup-docs/liquid-settings-for-js-css.md) for sanitizing the files of liquid and
