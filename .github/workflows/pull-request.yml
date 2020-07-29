@@ -1,6 +1,3 @@
-- name: Ready for review - Slack notifier
-  uses: kv109/action-ready-for-review@0.2
-
 on: 
   pull_request:
     types: [opened, ready_for_review]
