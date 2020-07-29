@@ -81,19 +81,7 @@ from `build-process-files` to the directory of your project
 6. Add `main.scss` to `styles` folder
 
 (Optional)
-7. Add `index.js` to `scripts` folder
 
-### Setup in Existing Project
-
-1. Clone this repo
-2. (If needed) Install bundler 2 - `gem install bundler`  
-3. Install gems - `bundle install`
-4. Run `ruby build_process_app.rb migrate [PATH_TO_PROJECT_DIR]` to copy files
-from `build-process-files` to the directory of your project
-5. Move to the folder of the theme you downloaded
-6. Add `main.scss` to `styles` folder
-
-(Optional)
 7. Add `index.js` to `scripts` folder
 
 ### Next Steps
