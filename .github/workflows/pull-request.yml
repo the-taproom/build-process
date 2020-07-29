@@ -17,7 +17,7 @@ jobs:
         PR_APPROVED_FORMAT: | # Format is fully customizable.
           *{ pull_request.title }* was approved by { review.user.login } :heavy_check_mark: :tada:
         PR_READY_FOR_REVIEW_FORMAT: |
-          ^^^ <!channel> New PR! :smile: ^^^
+          New PR! <!channel> :smile:
         PR_REJECTED_FORMAT: |
           *{ pull_request.title }* was rejected by { review.user.login } :cry:
         SLACK_CHANNEL: pull-requests
