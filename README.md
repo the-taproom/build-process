@@ -14,25 +14,19 @@ reference updated, and theme deployed to circumvent the build process.
 
 The root directory for these folders will be iterated through on build. Each file
 located in root will have an equitable `.min` file created for it in the assets
-folder. This provides the opportunity to only load the scripts and styles
-needed for a specific page instead of loading everything for the entire site at
+folder. This separation provides the opportunity to only load the scripts and styles
+needed for a specific page instead of requiring all assets for the entire site at
 one time. For the components that need to be on every page, you can do this by
 creating a subdirectory in the `scripts` or `styles` folder and importing it to
 a `main.scss`/`theme.scss`/`index.js`/`theme.js` file in the root of the parent
-directory (see Note).
+directory.
 
-The build process is possible because these are javascript, css, or scss files, 
+The build process is possible because these are javascript and scss files, 
 not `.liquid` files. Liquid in the build process files will keep it from
 working. If `.js.liquid`, `.css.liquid` or `.scss.liquid` files need to be moved
 over, please follow [this process](./setup-docs/liquid-settings-for-js-css.md) for sanitizing the files of liquid and
 referencing them in a way the build process can handle.
 
-_Note: There is an issue currently where changes to files in subdirectories will
-not force a rebuild for files in the parent directory which might include
-references to the child directory files. For now, the workarounds are to rebuild
-each time or place the file in assets while in development and reference it
-directly in theme, then move it back to build process as you prepare for
-deployment._
 
 ### File Structure
 
