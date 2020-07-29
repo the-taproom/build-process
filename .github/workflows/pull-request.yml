@@ -28,4 +28,3 @@ jobs:
           *{ pull_request.title }* was rejected by { review.user.login } :cry:
         SLACK_CHANNEL: pull-requests
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        USERNAME: @kickinbahk
