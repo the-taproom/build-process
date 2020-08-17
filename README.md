@@ -93,7 +93,7 @@ from `build-process-files` to the directory of your project
 ### Next Steps
 
 1. Add snippet `css-variables.liquid` to snippets folder
-    - This file allow us to sanitize our css and javascript files from any liquid 
+    - This file allow us to sanitize our scss files from any liquid 
 
 Code for file: 
 ```
@@ -104,6 +104,7 @@ Code for file:
 --color-background: {{ settings.color_background_color }}
 }
 {% endcomment %}
+
 <style>
   :root {
     --color-black: #000000;
@@ -113,26 +114,27 @@ Code for file:
 ```
 
 2. Add snippet `js-variables.liquid` to snippets folder
+    - This file allow us to sanitize our javascript files from any liquid 
 
 Code for file: 
 ```
 {% capture js_variables %}
-
-<script>
-Shopify = window.Shopify || {};
-{% comment %} /* # Theme settings
-================================================== */ {% endcomment %}
-Shopify.theme_settings = {};
-{% comment %} Example: {% endcomment %}
-{% comment %} Cart 
-Shopify.theme_settings.display_tos_checkbox = {{ settings.display_tos_checkbox | json }};
-Shopify.theme_settings.go_to_checkout = {{ settings.go_to_checkout | json }};
-Shopify.theme_settings.cart_action = {{ settings.cart_action | json }};
-{% endcomment %}
-</script>
-
+  <script>
+  Shopify = window.Shopify || {};
+  {% comment %} /* # Theme settings
+  ================================================== */ {% endcomment %}
+  Shopify.theme_settings = {};
+  {% comment %} Example: {% endcomment %}
+  {% comment %} Cart 
+  Shopify.theme_settings.display_tos_checkbox = {{ settings.display_tos_checkbox | json }};
+  Shopify.theme_settings.go_to_checkout = {{ settings.go_to_checkout | json }};
+  Shopify.theme_settings.cart_action = {{ settings.cart_action | json }};
+  {% endcomment %}
+  </script>
 {% endcapture %}
+
 {%- assign js_variables = js_variables | split: 'Shopify.' -%}
+
 {%- for variable in js_variables -%}
   {%- assign variableblock = variable | strip -%}
   {% if forloop.first %}
@@ -165,4 +167,3 @@ Shopify.theme_settings.cart_action = {{ settings.cart_action | json }};
 - `{{ 'index.min.js' | asset_url | script_tag }}`
 8. Add Store url to `cypress.json`
 9. See Project's `README.md` for next steps in setting up the project
-
