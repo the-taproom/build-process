@@ -1,5 +1,8 @@
-# Setup: https://shopify.github.io/themekit/configuration/
 # Copy this file to config.yml or rename it to config.yml, the choice is up to thee!
+# password, theme_id, and store variables are required.
+#
+# For more information on this config file:
+# https://shopify.github.io/themekit/commands/#configure
 development:
   password:
   theme_id:
