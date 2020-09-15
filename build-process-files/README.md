@@ -8,10 +8,13 @@ Master branch = `master`
 
 `npm run start`        - Starts Gulp watcher on `scripts` and `styles` directories.
 `npm run build`        - Gulp builds the .min files from `scripts` and `styles`, but doesn't watch.
-`npm run watch`        - Runs theme deploy and theme watch on development config.
+`npm run watch`        - Runs theme deploy and theme watch on development config and opens the development preview link in your default browser.
 `npm run test`         - Runs Cypress open and will start any tests.
 `npm run deploy-dev`   - `theme deploy --env=development`
 `npm run deploy-stage` - `theme deploy --env=staging`
+`npm run preview` - Opens the development preview link in your default browser
+`npm run preview-staging` - Opens the staging preview link in your default browser
+`npm run preview-production` - Opens the production preview link in your default browser
 
 ## Project Setup
 
