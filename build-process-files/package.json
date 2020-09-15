@@ -56,9 +56,9 @@
     "test": "cypress open",
     "deploy-dev": "theme deploy --env=development",
     "deploy-stage": "theme deploy --env=staging",
-    "preview": "cd bin && node ./open-dev-store.js development && cd ..",
-    "preview-staging": "cd bin && node ./open-dev-store.js staging && cd ..",
-    "preview-production": "cd bin && node ./open-dev-store.js production && cd .."
+    "preview": "node ./bin/preview.js development",
+    "preview-staging": "node ./bin/preview.js staging",
+    "preview-production": "node ./bin/preview.js production"
   },
   "dependencies": {}
 }

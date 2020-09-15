@@ -24,7 +24,7 @@ function allOrNothing(env, data, fileContents) {
 function run() {
   try {
     const env = process.argv[2];
-    const fileContents = fs.readFileSync("../config.yml", "utf8");
+    const fileContents = fs.readFileSync("./config.yml", "utf8");
     const data = yaml.safeLoad(fileContents);
     allOrNothing(env, data, fileContents);
     let url;
