@@ -39,7 +39,9 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-style-aliases": "^1.1.11",
     "gulp-uglify": "^3.0.2",
+    "js-yaml": "^3.14.0",
     "node-sass": "^4.14.1",
+    "open": "^7.2.1",
     "rollup": "^1.32.1",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
@@ -53,7 +55,10 @@
     "watch": "theme deploy --env=development && theme watch --env=development",
     "test": "cypress open",
     "deploy-dev": "theme deploy --env=development",
-    "deploy-stage": "theme deploy --env=staging "
+    "deploy-stage": "theme deploy --env=staging",
+    "preview": "node ./bin/preview.js development",
+    "preview-staging": "node ./bin/preview.js staging",
+    "preview-production": "node ./bin/preview.js production"
   },
   "dependencies": {}
 }
