@@ -2,12 +2,23 @@ const open = require("open");
 const yaml = require('js-yaml');
 const fs = require('fs');
 
+/**
+ * @param {Config} env
+ */
 function buildUrl(env) {
   return `https://${env.store}?preview_theme_id=${env.theme_id}`;
 }
 
-function allOrNothing(data, fileContents) {
-  if (!process.argv[2] || !data || !fileContents || typeof data === "object" && data.development === undefined) throw new Error("environment has to be specific");
+/**
+ * @typedef {object} Config
+ * @property {string} store
+ * @property {number} theme_id
+ * @param {string} env development|staging|production
+ * @param {Config} data
+ * @param {object} fileContents
+ */
+function allOrNothing(env, data, fileContents) {
+  if (!env || !data || !fileContents) throw new Error("environment has to be specific");
 }
 
 function run() {
@@ -15,24 +26,27 @@ function run() {
     const env = process.argv[2];
     const fileContents = fs.readFileSync("../config.yml", "utf8");
     const data = yaml.safeLoad(fileContents);
-    allOrNothing();
+    allOrNothing(env, data, fileContents);
+    let url;
 
-    var url;
     switch (env) {
-      case "development" || "dev":
+      case "development":
         url = buildUrl(data.development);
+        console.log(url);
         break;
-      case "staging" || "stage":
+      case "staging":
         url = buildUrl(data.staging);
         break;
-      case "production" || "prod":
+      case "production":
         url = buildUrl(data.production);
         break;
     }
+
     console.log("Opening URL: " + url);
     open(url);
   } catch (e) {
-    console.log("ERROR Opening Dev Store URL: " + JSON.stringify(e));
+    console.info(`ERROR: Could not Open shopify store preview URL.`);
+    console.error(e);
   }
 }
 

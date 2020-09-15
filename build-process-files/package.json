@@ -52,10 +52,13 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp build",
-    "watch": "theme deploy --env=development && theme watch --env=development",
+    "watch": "theme deploy --env=development && theme watch --env=development && node ./bin/open-dev-store.js development",
     "test": "cypress open",
     "deploy-dev": "theme deploy --env=development",
-    "deploy-stage": "theme deploy --env=staging "
+    "deploy-stage": "theme deploy --env=staging",
+    "open-dev-store": "cd bin && node ./open-dev-store.js development",
+    "open-staging-store": "cd bin && node ./open-dev-store.js staging",
+    "open-production-store": "cd bin && node ./open-dev-store.js production"
   },
   "dependencies": {}
 }
