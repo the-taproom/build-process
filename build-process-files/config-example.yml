@@ -1,5 +1,5 @@
 # Setup: https://shopify.github.io/themekit/configuration/
-# Copy this file to config.yml or rename it to config.yml,the choice is up to thee!
+# Copy this file to config.yml or rename it to config.yml, the choice is up to thee!
 development:
   password:
   theme_id:
