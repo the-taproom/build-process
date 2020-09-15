@@ -1,0 +1,27 @@
+# Setup: https://shopify.github.io/themekit/configuration/
+# Copy this file to config.yml or rename it to config.yml,the choice is up to thee!
+development:
+  password:
+  theme_id:
+  store:
+  timeout:
+  ignores:
+    -themekit.ignores
+  ignore_files:
+      - config/settings_data.json
+      - config/settings_schema.json
+staging:
+  password:
+  theme_id:
+  store:
+  ignores:
+    -themekit.ignores
+  ignore_files:
+      - config/settings_data.json
+      - config/settings_schema.json
+production:
+  password:
+  theme_id:
+  store:
+  timeout: 100s
+  readonly: true
