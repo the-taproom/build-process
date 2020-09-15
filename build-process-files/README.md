@@ -45,9 +45,9 @@ development:
     -themekit.ignores
   ignore_files:
       - config/settings_data.json
-      - config/settings_schema.json  
-  
-staging: 
+      - config/settings_schema.json
+
+staging:
   password: [your-api-password]
   theme_id: "[your-theme-id]"
   store: [your-store].myshopify.com
@@ -55,9 +55,9 @@ staging:
     -themekit.ignores
   ignore_files:
       - config/settings_data.json
-      - config/settings_schema.json  
-  
-production: 
+      - config/settings_schema.json
+
+production:
   password: [your-api-password]
   theme_id: "[your-theme-id]"
   store: [your-store].myshopify.com
@@ -87,6 +87,8 @@ production:
 
 7. Run `theme deploy`
 
+***NOTE:** There is already an empty example config file (config-example.yml) in the directory for you to use as a starting point. For more information on configuration refer to the [ThemeKit configuration docs](https://shopify.github.io/themekit/commands/#configure)*.
+
 ## Cypress
 
 [Cypress](https://www.cypress.io/) allows for a complete end-to-end testing experience and provides
@@ -102,7 +104,7 @@ file already. This will be the default url that is loaded.
 
 ### Cypress Dev Setup
 
-If you would like to test themes that aren't live, follow these steps. 
+If you would like to test themes that aren't live, follow these steps.
 
 1. Add `cypress.env.json` file to the project root.
 

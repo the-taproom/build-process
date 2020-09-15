@@ -1,0 +1,30 @@
+# Copy this file to config.yml or rename it to config.yml, the choice is up to thee!
+# password, theme_id, and store variables are required.
+#
+# For more information on this config file:
+# https://shopify.github.io/themekit/commands/#configure
+development:
+  password:
+  theme_id:
+  store:
+  timeout:
+  ignores:
+    -themekit.ignores
+  ignore_files:
+      - config/settings_data.json
+      - config/settings_schema.json
+staging:
+  password:
+  theme_id:
+  store:
+  ignores:
+    -themekit.ignores
+  ignore_files:
+      - config/settings_data.json
+      - config/settings_schema.json
+production:
+  password:
+  theme_id:
+  store:
+  timeout: 100s
+  readonly: true
