@@ -1,8 +1,8 @@
 # {ProjectName}
 
-[Project Name](link to project Basecamp)
+[Project Name](link to project basecamp/management system)
 
-Master branch = `master`
+Default branch = `main`
 
 ## Commands
 
@@ -102,7 +102,7 @@ To get started with Cypress, check out [their get started guide.](https://docs.c
 
 It is also recommended to checkout Cypress' [Best Practices guide](https://docs.cypress.io/guides/references/best-practices.html).
 
-Live url for project is set up as an environment variable in the `cypress.json`
+Live url for project is set as an environment variable in the `cypress.json`
 file already. This will be the default url that is loaded.
 
 ### Cypress Dev Setup
@@ -119,6 +119,8 @@ If you would like to test themes that aren't live, follow these steps.
   "is-dev": "true"
 }
 ```
+
+_Note: Change out theme id to your preview theme id_
 
 3. Start any new file with this inside the `describe` block:
 
