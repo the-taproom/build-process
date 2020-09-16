@@ -6,15 +6,15 @@ Master branch = `master`
 
 ## Commands
 
-`npm run start`        - Starts Gulp watcher on `scripts` and `styles` directories.
-`npm run build`        - Gulp builds the .min files from `scripts` and `styles`, but doesn't watch.
-`npm run watch`        - Runs theme deploy and theme watch on development config and opens the development preview link in your default browser.
-`npm run test`         - Runs Cypress open and will start any tests.
-`npm run deploy-dev`   - `theme deploy --env=development`
-`npm run deploy-stage` - `theme deploy --env=staging`
-`npm run preview` - Opens the development preview link in your default browser
-`npm run preview-staging` - Opens the staging preview link in your default browser
-`npm run preview-production` - Opens the production preview link in your default browser
+* `npm run start`        - Builds assets then starts Gulp watcher on `scripts` and `styles` directories.
+* `npm run build`        - Gulp builds the .min files from `scripts` and `styles`, but doesn't watch.
+* `npm run watch`        - Runs theme deploy and theme watch on development config and opens the development preview link in your default browser.
+* `npm run test`         - Runs Cypress open and will start any tests.
+* `npm run deploy-dev`   - `theme deploy --env=development`
+* `npm run deploy-stage` - `theme deploy --env=staging`
+* `npm run preview` - Opens the development preview link in your default browser
+* `npm run preview-staging` - Opens the staging preview link in your default browser
+* `npm run preview-production` - Opens the production preview link in your default browser
 
 ## Project Setup
 
@@ -69,12 +69,12 @@ production:
 
 ```
 
-6. Get password from private app (All developers at The Taproom use the same app for each client)
+6. Get password from a private app (All developers at The Taproom use the same app per client)
 
 - **New Client**
   - Shopify admin => Apps => Private Apps => Manage Private Apps => Create New
     Private App
-    - Enter App Name (Taproom Development) & Contact Email (kelly@thetaproom.com)
+    - Enter App Name & Contact Email
     - _Theme templates and theme assets_ set to **Read Write** access.
     - Save
     - Copy **Password**
@@ -95,8 +95,8 @@ production:
 ## Cypress
 
 [Cypress](https://www.cypress.io/) allows for a complete end-to-end testing experience and provides
-in-browser testing. This allows us to accuarately test Shopify stores from both
-the live url and with preview links added
+in-browser testing. This allows us to accurately test Shopify stores from both
+the live url and with preview links added.
 
 To get started with Cypress, check out [their get started guide.](https://docs.cypress.io/guides/getting-started/writing-your-first-test.html#Step-2-Query-for-an-element)
 
@@ -120,7 +120,7 @@ If you would like to test themes that aren't live, follow these steps.
 }
 ```
 
-3. Start any new file with this inside the describe block:
+3. Start any new file with this inside the `describe` block:
 
 ``` javascript
 let url = Cypress.env("url");
@@ -131,7 +131,7 @@ if(Cypress.env("is-dev") == "true") {
 }
 ```
 
-4. When visiting in spec file, url can be referenced as:
+4. When visiting in `spec` file, url can be referenced as:
 
 ``` javascript
 cy.visit(`${url}${devQuery}`);
