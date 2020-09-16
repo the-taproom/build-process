@@ -6,23 +6,19 @@
   "author": "The Taproom",
   "license": "PRIVATE",
   "private": true,
-  "engines": {
-    "node": ">=12.x",
-    "yarn": ">=1.22.x"
-  },
   "devDependencies": {
-    "@babel/core": "^7.10.2",
-    "@babel/plugin-transform-runtime": "^7.10.1",
-    "@babel/preset-env": "^7.10.2",
-    "@babel/runtime": "^7.10.2",
-    "autoprefixer": "^9.8.0",
+    "@babel/core": "^7.11.1",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/runtime": "^7.11.2",
+    "autoprefixer": "^9.8.6",
     "babel-eslint": "^10.1.0",
     "cssnano": "^4.1.10",
-    "cypress": "^4.8.0",
+    "cypress": "^4.12.1",
     "eslint": "^5.7.0",
     "eslint-config-prettier": "^3.0.1",
     "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^7.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
@@ -34,7 +30,7 @@
     "gulp-exit": "0.0.2",
     "gulp-postcss": "^8.0.0",
     "gulp-purgecss": "^1.2.0",
-    "gulp-rollup-lightweight": "^1.0.10",
+    "gulp-rollup-lightweight": "^1.0.11",
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-style-aliases": "^1.1.11",
@@ -60,5 +56,7 @@
     "preview-staging": "node ./bin/preview.js staging",
     "preview-production": "node ./bin/preview.js production"
   },
-  "dependencies": {}
+  "dependencies": {
+    "cypress-intellij-reporter": "0.0.4"
+  }
 }

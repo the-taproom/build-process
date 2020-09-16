@@ -6,8 +6,12 @@
 	},
 	"globals": {
 		"Shopify": "readonly",
+		"$": "readonly",
+		"ga": "readonly",
+		"cy": "readonly",
 		"TAP": "writable",
-		"Taproom": "writable"
+		"Taproom": "writable",
+		"Shopify.theme_settings": "writable"
 	},
 	"rules": {
 		"space-before-function-paren": "off",
