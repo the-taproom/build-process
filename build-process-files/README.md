@@ -74,7 +74,7 @@ production:
 - **New Client**
   - Shopify admin => Apps => Private Apps => Manage Private Apps => Create New
     Private App
-    - Enter App Name & Contact Email
+    - Enter App Name (e.g. Taproom Development) and Contact Email (e.g. dev@thetaproom.com) 
     - _Theme templates and theme assets_ set to **Read Write** access.
     - Save
     - Copy **Password**
@@ -82,7 +82,7 @@ production:
     See gif below for walkthrough
 
 - **Previous Client**
-  - Shopify admin => Apps => Private Apps => Manage Private Apps => Taproom App
+  - Shopify admin => Apps => Private Apps => Manage Private Apps => App Name (e.g. Taproom Theme Development)
     => Password
 
     Gif for walkthrough:
