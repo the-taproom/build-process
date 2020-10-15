@@ -1,5 +1,5 @@
 {
-  "name": "Taproom Build Process",
+  "name": "Taproom-Build-Process",
   "version": "1.0.0",
   "description": "Shopify Build Process",
   "main": "gulpfile.js",
