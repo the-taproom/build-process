@@ -28,7 +28,11 @@ To build this project:
    - `brew tap shopify/shopify`
    - `brew install themekit`
 
-3. Install [Themekit](https://shopify.github.io/themekit/)
+   **Using Chocolatey**
+
+   - `choco install themekit`
+
+For more installation options, view the [Themekit](https://shopify.github.io/themekit/) documentation.
 
 4. Run `npm install`
 
