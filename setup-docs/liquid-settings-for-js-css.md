@@ -18,8 +18,8 @@ failing because of liquid tags.
 
 See these snippets on Cacher for exact implementations:
 
-Javascript - [https://snippets.cacher.io/snippet/26e943d324dec1b70d1bA](https://snippets.cacher.io/snippet/26e943d324dec1b70d1b)
+Javascript - [https://gist.github.com/kellyvaughn/4ff7dd4ec4ddbd78d195f584503da622](https://gist.github.com/kellyvaughn/4ff7dd4ec4ddbd78d195f584503da622)
 
-CSS - [https://snippets.cacher.io/snippet/086bf54d9891b6c8bda5](https://snippets.cacher.io/snippet/086bf54d9891b6c8bda5)
+CSS - [https://gist.github.com/kellyvaughn/7283c286e53d9f1c40ed5ff8e9beb9f1](https://gist.github.com/kellyvaughn/7283c286e53d9f1c40ed5ff8e9beb9f1)
 
 
