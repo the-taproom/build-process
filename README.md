@@ -167,5 +167,5 @@ Code for file:
     _Replace `tap` with the prefix you preferred_
 - `{{ 'tap-main.min.css' | asset_url | stylesheet_tag }}`
 - `{{ 'tap-index.min.js' | asset_url | script_tag }}`
-8. Add Store url to `cypress.json`
+8. Add Production store URL to `cypress.json`
 9. See Project's `README.md` for next steps in setting up the project
