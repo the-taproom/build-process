@@ -125,9 +125,9 @@ const jsBuildTask = function (fileName) {
 gulp.task("css", async function () {
   log("+++++++++++++++");
   log("CSS Compiling...");
-  log("Compiling: main.scss");
+  log("Compiling: tap-main.scss");
   return gulp
-    .src(stylesDirectory + "main.scss")
+    .src(stylesDirectory + "tap-main.scss")
     .pipe(sourcemaps.init())
     .pipe(
       aliases({
@@ -137,7 +137,7 @@ gulp.task("css", async function () {
     .pipe(sass().on("error", sass.logError))
     .pipe(sourcemaps.write())
     .pipe(postcss(cssPlugins))
-    .pipe(concat("main.min.css"))
+    .pipe(concat("tap-main.min.css"))
     .pipe(
       t2.obj((chunk, enc, callback) => {
         let date = new Date();

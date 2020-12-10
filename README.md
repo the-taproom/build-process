@@ -18,8 +18,9 @@ folder. This separation provides the opportunity to only load the scripts and st
 needed for a specific page instead of requiring all assets for the entire site at
 one time. For the components that need to be on every page, you can do this by
 creating a subdirectory in the `scripts` or `styles` folder and importing it to
-a `main.scss`/`theme.scss`/`index.js`/`theme.js` file in the root of the parent
-directory.
+a `tap-main.scss`/`tap-theme.scss`/`tap-index.js`/`tap-theme.js` file in the root of the parent
+directory. We prefix all files in the root of the `scripts` and `styles` directories 
+with `tap-` so we can ignore theme preventing merge conflicts, but not ignore vendor.min files.
 
 The build process is possible because these are javascript and scss files, 
 not `.liquid` files. Liquid in the build process files will keep it from
@@ -48,16 +49,16 @@ Potential file structure for a project:
     |-- scripts
         |-- components
             |-- header.js
-        |-- index.js (includes header.js)
-        |-- my-page.js
-        |-- product.js
+        |-- tap-index.js (includes header.js)
+        |-- tap-my-page.js
+        |-- tap-product.js
     |-- snippets
     |-- styles
         |-- components
             |-- header.scss
-        |-- main.scss (includes header.scss)
-        |-- my-page.scss
-        |-- product.scss
+        |-- tap-main.scss (includes header.scss)
+        |-- tap-my-page.scss
+        |-- tap-product.scss
     |-- templates
 
 ```
@@ -72,10 +73,10 @@ Potential file structure for a project:
 4. Install gems - `bundle install`
 5. Run `ruby build_process_app.rb migrate [PATH_TO_PROJECT_DIR]` to copy files
 from `build-process-files` to the directory of your project
-6. Add `main.scss` to `styles` folder
+6. Add `tap-main.scss` to `styles` folder (Files in root should have some prefix to avoid gitignoring `.min` files) (Files in root should have some prefix to avoid gitignoring `.min` files. Make sure to update `.gitignore` too.)
 
 (Optional)
-7. Add `index.js` to `scripts` folder
+7. Add `tap-index.js` to `scripts` folder (Files in root should have some prefix to avoid gitignoring `.min` files) (Files in root should have some prefix to avoid gitignoring `.min` files. Make sure to update `.gitignore` too.)
 
 ### Setup in Existing Project
 
@@ -85,10 +86,10 @@ from `build-process-files` to the directory of your project
 4. Run `ruby build_process_app.rb migrate [PATH_TO_PROJECT_DIR]` to copy files
 from `build-process-files` to the directory of your project
 5. Move to the folder of the theme you downloaded
-6. Add `main.scss` to `styles` folder
+6. Add `tap-main.scss` to `styles` folder (Files in root should have some prefix to avoid gitignoring `.min` files) (Files in root should have some prefix to avoid gitignoring `.min` files. Make sure to update `.gitignore` too.)
 
 (Optional)
-7. Add `index.js` to `scripts` folder
+7. Add `tap-index.js` to `scripts` folder (Files in root should have some prefix to avoid gitignoring `.min` files) (Files in root should have some prefix to avoid gitignoring `.min` files. Make sure to update `.gitignore` too.)
 
 ### Next Steps
 
@@ -163,7 +164,8 @@ Code for file:
 6. Build minified files
 - `npm run build`
 7. Include minified files in `theme.liquid`
-- `{{ 'main.min.css' | asset_url | stylesheet_tag }}`
-- `{{ 'index.min.js' | asset_url | script_tag }}`
+    _Replace `tap` with the prefix you preferred_
+- `{{ 'tap-main.min.css' | asset_url | stylesheet_tag }}`
+- `{{ 'tap-index.min.js' | asset_url | script_tag }}`
 8. Add Production store URL to `cypress.json`
 9. See Project's `README.md` for next steps in setting up the project
