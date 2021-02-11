@@ -1,0 +1,17 @@
+name: Auto Approve
+
+on:
+  pull_request_target
+
+jobs:
+  auto-approve:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get the current branch name
+      shell: bash
+      run: echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
+      id: myref
+    - uses: hmarr/auto-approve-action@v2.0.0
+      if: contains(${{ steps.myref.outputs.branch }}, "hotfix/")
+      with:
+        github-token: "${{ secrets.GITHUB_TOKEN }}"
