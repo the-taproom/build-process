@@ -1,0 +1,10 @@
+_extends: github-settings
+
+from_owner: []
+
+required_labels: 
+  - Hotfix
+
+blacklisted_labels: []
+
+apply_labels: []
