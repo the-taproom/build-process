@@ -60,7 +60,7 @@ Check large sizing and confirm we have max width on elements (Use Dev tools to '
 - [ ]  3000px wide
 - [ ]  4000px wide
 
-**ALWAYS PERFORM THIS CHECK:**
+## ALWAYS PERFORM THIS CHECK:
 
 ### Checkout
 
